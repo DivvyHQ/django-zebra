@@ -120,3 +120,68 @@ WEBHOOK_MAP = {
     'transfer_failed': zebra_webhook_transfer_failed,
     'ping': zebra_webhook_ping,
 }
+
+# VERIFIED EVENTS
+zebra_webhook_charge_succeeded_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_charge_failed_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_charge_refunded_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_charge_disputed_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_customer_created_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_customer_updated_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_customer_deleted_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_customer_subscription_created_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_customer_subscription_updated_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_customer_subscription_deleted_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_customer_subscription_trial_will_end_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_customer_discount_created_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_customer_discount_updated_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_customer_discount_deleted_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_invoice_created_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_invoice_updated_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_invoice_payment_succeeded_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_invoice_payment_failed_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_invoiceitem_created_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_invoiceitem_updated_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_invoiceitem_deleted_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_plan_created_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_plan_updated_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_plan_deleted_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_coupon_created_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_coupon_updated_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_coupon_deleted_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_transfer_created_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_transfer_failed_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+zebra_webhook_ping_verified = django.dispatch.Signal(providing_args=WEBHOOK2_ARGS)
+
+WEBHOOK_MAP.update({
+    'charge_succeeded_verified': zebra_webhook_charge_succeeded_verified,
+    'charge_failed_verified': zebra_webhook_charge_failed_verified,
+    'charge_refunded_verified': zebra_webhook_charge_refunded_verified,
+    'charge_disputed_verified': zebra_webhook_charge_disputed_verified,
+    'customer_created_verified': zebra_webhook_customer_created_verified,
+    'customer_updated_verified': zebra_webhook_customer_updated_verified,
+    'customer_deleted_verified': zebra_webhook_customer_deleted_verified,
+    'customer_subscription_created_verified': zebra_webhook_customer_subscription_created_verified,
+    'customer_subscription_updated_verified': zebra_webhook_customer_subscription_updated_verified,
+    'customer_subscription_deleted_verified': zebra_webhook_customer_subscription_deleted_verified,
+    'customer_subscription_trial_will_end_verified': zebra_webhook_customer_subscription_trial_will_end_verified,
+    'customer_discount_created_verified': zebra_webhook_customer_discount_created_verified,
+    'customer_discount_updated_verified': zebra_webhook_customer_discount_updated_verified,
+    'customer_discount_deleted_verified': zebra_webhook_customer_discount_deleted_verified,
+    'invoice_created_verified': zebra_webhook_invoice_created_verified,
+    'invoice_updated_verified': zebra_webhook_invoice_updated_verified,
+    'invoice_payment_succeeded_verified': zebra_webhook_invoice_payment_succeeded_verified,
+    'invoice_payment_failed_verified': zebra_webhook_invoice_payment_failed_verified,
+    'invoiceitem_created_verified': zebra_webhook_invoiceitem_created_verified,
+    'invoiceitem_updated_verified': zebra_webhook_invoiceitem_updated_verified,
+    'invoiceitem_deleted_verified': zebra_webhook_invoiceitem_deleted_verified,
+    'plan_created_verified': zebra_webhook_plan_created_verified,
+    'plan_updated_verified': zebra_webhook_plan_updated_verified,
+    'plan_deleted_verified': zebra_webhook_plan_deleted_verified,
+    'coupon_created_verified': zebra_webhook_coupon_created_verified,
+    'coupon_updated_verified': zebra_webhook_coupon_updated_verified,
+    'coupon_deleted_verified': zebra_webhook_coupon_deleted_verified,
+    'transfer_created_verified': zebra_webhook_transfer_created_verified,
+    'transfer_failed_verified': zebra_webhook_transfer_failed_verified,
+    'ping_verified': zebra_webhook_ping_verified,
+})

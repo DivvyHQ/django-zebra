@@ -78,5 +78,21 @@ def webhooks_v2(request):
 
     if event_key in WEBHOOK_MAP:
         WEBHOOK_MAP[event_key].send(sender=None, full_json=event_json)
+        verify_stripe_event(event_key, event_json)
 
     return HttpResponse(status=200)
+
+
+def verify_stripe_event(event_key, event_json):
+    """
+    Verify with stripe API if the event is valid and send a signal *_verified
+
+    """
+    try:
+        event_id = event_json["id"]
+        stripe_event = stripe.Event.retrieve(event_id)
+        WEBHOOK_MAP[event_key + "_verified"].send(sender=None,
+                                                full_json=stripe_event["json"])
+    except stripe.error.StripeError, e:
+        # Do nothing if this fails
+        pass
