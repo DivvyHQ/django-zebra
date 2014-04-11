@@ -96,3 +96,5 @@ def verify_stripe_event(event_key, event_json):
     except stripe.error.StripeError, e:
         # Do nothing if this fails
         pass
+
+        
