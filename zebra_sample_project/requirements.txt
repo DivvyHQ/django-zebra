@@ -1,7 +1,7 @@
 pip > 1.0
 pycurl
 stripe
-django
+django==1.5 # Not working in >1.5
 django-extensions
 
 # we include it from the parent dir. You'll want to install it.
