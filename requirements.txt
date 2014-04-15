@@ -1,2 +1,2 @@
 stripe
-django
+django<=1.5
