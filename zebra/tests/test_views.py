@@ -18,21 +18,37 @@ class WebhooksV2Tests(TestCase):
         self.addCleanup(patcher.stop)
 
         patcher = mock.patch('zebra.views.verify_stripe_event')
-        self.mock_event = patcher.start()
+        self.mock_verify = patcher.start()
         self.addCleanup(patcher.stop)
 
         self.request = RequestFactory().post('/some/url/')
         self.event_name = "plan.created"
-        self.request._body = json.dumps({'type': self.event_name})
+        self.event_key = self.event_name.replace('.', '_')
+        self.event_data = {'type': self.event_name}
+        self.request._body = json.dumps(self.event_data)
 
     def test_known_signal_send_is_called(self):
         webhooks_v2(self.request)
-        event_key = self.event_name.replace('.', '_')
         webhook_get = self.mock_webhook_map.__getitem__
-        webhook_get.assert_called_once_with(event_key)
+        webhook_get.assert_called_once_with(self.event_key)
         signal = webhook_get.return_value
-        event_data = json.loads(self.request._body)
-        signal.send.assert_called_once_with(full_json=event_data, sender=None)
+        signal.send.assert_called_once_with(full_json=self.event_data,
+                                            sender=None)
+
+    def test_known_signal_verify_stripe_event_is_called(self):
+        webhooks_v2(self.request)
+        self.mock_verify.assert_called_once_with(self.event_key,
+                                                 self.event_data)
+
+    def test_unknown_signal_name_then_no_signal_is_sent(self):
+        self.mock_webhook_map.__contains__.return_value = False
+        webhooks_v2(self.request)
+        self.assertEqual(self.mock_webhook_map.__getitem__.call_count, 0)
+
+    def test_unknown_signal_verify_stripe_event_not_called(self):
+        self.mock_webhook_map.__contains__.return_value = False
+        webhooks_v2(self.request)
+        self.assertEqual(self.mock_verify.call_count, 0)
 
 
 class VerifyStripeEventTests(TestCase):
