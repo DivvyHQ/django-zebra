@@ -19,6 +19,7 @@ v2
 - zebra_webhook_customer_created
 - zebra_webhook_customer_updated
 - zebra_webhook_customer_deleted
+- zebra_webhook_customer_card_updated
 - zebra_webhook_customer_subscription_created
 - zebra_webhook_customer_subscription_updated
 - zebra_webhook_customer_subscription_deleted
@@ -73,10 +74,14 @@ WEBHOOK_NAMES = ['charge_succeeded', 'charge_failed', 'charge_refunded',
                  'customer_subscription_deleted',
                  'customer_subscription_trial_will_end',
                  'customer_discount_created', 'customer_discount_updated',
-                 'customer_discount_deleted', 'invoice_created',
-                 'invoice_updated', 'invoice_payment_succeeded',
-                 'invoice_payment_failed', 'invoiceitem_created',
-                 'invoiceitem_updated', 'invoiceitem_deleted', 'plan_created',
+                 'customer_discount_deleted',
+                 'customer_card_created',
+                 'customer_card_updated',
+                 'customer_card_deleted',
+                 'invoice_created', 'invoice_updated',
+                 'invoice_payment_succeeded', 'invoice_payment_failed',
+                 'invoiceitem_created', 'invoiceitem_updated',
+                 'invoiceitem_deleted', 'plan_created',
                  'plan_updated', 'plan_deleted', 'coupon_created',
                  'coupon_updated', 'coupon_deleted', 'transfer_created',
                  'transfer_failed', 'ping', ]
