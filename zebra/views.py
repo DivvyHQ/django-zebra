@@ -91,10 +91,10 @@ def verify_stripe_event(event_key, event_json):
     try:
         event_id = event_json["id"]
         stripe_event = stripe.Event.retrieve(event_id)
-        WEBHOOK_MAP[event_key + "_verified"].send(sender=None,
-                                            full_json=stripe_event.to_dict())
-    except stripe.error.StripeError, e:
+        WEBHOOK_MAP[event_key + "_verified"].send(
+            sender=None,
+            full_json=stripe_event.to_dict()
+        )
+    except stripe.error.StripeError:
         # Do nothing if this fails
         pass
-
-        
