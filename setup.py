@@ -6,12 +6,12 @@ ROOT_DIR = os.path.dirname(__file__)
 SOURCE_DIR = os.path.join(ROOT_DIR)
 
 setup(
-    name = "django-zebra",
-    description = "Library for Django and Stripe",
-    author = "Steven Skoczen",
-    author_email = "steven@agoodcloud.com",
-    url = "https://github.com/GoodCloud/django-zebra",
-    version = "0.4.5",
+    name = "django1.11-zebra",
+    description = "Library for Django1.11 and Stripe",
+    author = "DivvyHQ",
+    author_email = "contact@divvyhq.com",
+    url = "https://github.com/DivvyHQ/django-zebra",
+    version = "2.0",
     packages = find_packages(),
     zip_safe = False,
     include_package_data=True,
@@ -19,7 +19,6 @@ setup(
         "Programming Language :: Python",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-        "Development Status :: 4 - Beta",
         "Environment :: Web Environment",
         "Framework :: Django",
         "Intended Audience :: Developers",
